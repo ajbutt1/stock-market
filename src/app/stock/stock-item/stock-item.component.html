@@ -1,5 +1,5 @@
 <div class="stock-container"
-    *ngFor="let stock of stocks; odd as isOdd; index as i"
+    *ngFor="let stock of stocks; odd as isOdd; index as i; trackBy: trackStockByCode"
     [class.odd-item]="isOdd">
   <div class="name"><h3>{{ stock.name }}</h3> - <h4>{{ stock.code }}</h4> </div>
   <div class="price"
