@@ -24,3 +24,7 @@
 .small-change {
   font-size: 0.8em;
 }
+
+.odd-item {
+  background-color: grey;
+}
