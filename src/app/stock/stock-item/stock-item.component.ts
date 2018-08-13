@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Stock } from '../../model/stock';
+
 
 @Component({
   selector: 'app-stock-item',
@@ -9,10 +10,13 @@ import { Stock } from '../../model/stock';
 export class StockItemComponent {
 
   @Input() public stock: Stock;
+  @Output() private toggleFavorite: EventEmitter<Stock>;
 
-  constructor() { }
+  constructor() {
+    this.toggleFavorite = new EventEmitter<Stock>();
+  }
 
-  toggleFavorite(event) {
-    this.stock.favorite = !this.stock.favorite;
+  onToggleFavorite(event) {
+    this.toggleFavorite.emit(this.stock);
   }
 }
