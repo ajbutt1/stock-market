@@ -4,7 +4,7 @@ import { StockItemComponent } from './stock-item.component';
 import { Stock } from '../../model/stock';
 import { By } from '@angular/platform-browser';
 
-fdescribe('StockItemComponent', () => {
+describe('StockItemComponent', () => {
   let component: StockItemComponent;
   let fixture: ComponentFixture<StockItemComponent>;
 

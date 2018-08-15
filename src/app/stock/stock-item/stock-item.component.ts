@@ -16,7 +16,7 @@ export class StockItemComponent {
     this.toggleFavorite = new EventEmitter<Stock>();
   }
 
-  onToggleFavorite() {
+  onToggleFavorite(event) {
     this.toggleFavorite.emit(this.stock);
   }
 
