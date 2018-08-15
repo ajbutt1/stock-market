@@ -1,16 +1,13 @@
-import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+import { Stock } from './model/stock';
+
+fdescribe('AppComponent', () => {
+  it('should have stock instantiated on ngInit', () => {
+    const appComponent = new AppComponent();
+    expect(appComponent.stockObj).toBeUndefined();
+
+    appComponent.ngOnInit();
+    expect(appComponent.stockObj).toEqual(
+      new Stock('Test Stock Company - 1', 'TSC', 85, 80));
+  });
 });
