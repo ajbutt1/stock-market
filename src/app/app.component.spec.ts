@@ -1,7 +1,7 @@
 import { AppComponent } from './app.component';
 import { Stock } from './model/stock';
 
-fdescribe('AppComponent', () => {
+describe('AppComponent', () => {
   it('should have stock instantiated on ngInit', () => {
     const appComponent = new AppComponent();
     expect(appComponent.stockObj).toBeUndefined();
