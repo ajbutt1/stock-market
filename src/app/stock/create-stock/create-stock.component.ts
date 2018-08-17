@@ -17,8 +17,11 @@ export class CreateStockComponent {
   }
 
   setStockPrice(price) {
-    this.stock.price = price;
-    this.stock.previousPrice = price - price;
+    this.stock.previousPrice = this.stock.price;
+
+    setTimeout(() => {
+      this.stock.price = price;
+    }, 1000);
   }
 
   createStock() {
