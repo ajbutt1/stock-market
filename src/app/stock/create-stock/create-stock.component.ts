@@ -16,17 +16,10 @@ export class CreateStockComponent {
     this.stock = new Stock('', '', 0, 0, 'NASDAQ');
   }
 
-  setStockPrice(price) {
-    this.stock.previousPrice = this.stock.price;
-
-    setTimeout(() => {
-      this.stock.price = price;
-    }, 1000);
-  }
-
   createStock(stockForm) {
-    console.log('Stock form', stockForm);
+    console.log('Stock form', stockForm.value);
     if (stockForm.valid) {
+      this.stock = stockForm.value.stock;
       console.log('Creating stock ', this.stock);
     } else {
       console.error('Stock form is in an invalid state');
