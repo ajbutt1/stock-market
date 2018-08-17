@@ -6,8 +6,7 @@
       <input type="text"
              placeholder="Stock Name"
              name="stockName"
-             [ngModel]="stock.name"
-             (ngModelChange)="stock.name=$event">
+             [(ngModel)]="stock.name">
     </div>
   </form>
   <button (click)="stock.name='test'">Reset stock name</button>
