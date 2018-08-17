@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.stockObj = new Stock('Test Stock Company - ' + this.counter++,
-      'TSC', 85, 80);
+      'TSC', 85, 80, '');
   }
 
   onToggleFavorite(stock: Stock) {
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     // This will update the value in the stock item component
     // Because we are creating a new reference for the stock input
     this.stockObj = new Stock('Test Stock Company - ' + this.counter++,
-      'TSC', 85, 80);
+      'TSC', 85, 80, '');
   }
 
   changeStockPrice() {

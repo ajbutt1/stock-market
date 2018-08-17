@@ -8,8 +8,18 @@ import { Stock } from '../../model/stock';
 })
 export class CreateStockComponent {
   public stock: Stock;
+  public confirmed = false;
 
   constructor() {
-    this.stock = new Stock('test', '', 0, 0);
+    this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
+  }
+
+  setStockPrice(price) {
+    this.stock.price = price;
+    this.stock.previousPrice = price - price;
+  }
+
+  createStock() {
+    console.log('Creating stock', this.stock);
   }
 }
