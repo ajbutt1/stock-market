@@ -13,9 +13,7 @@
     </div>
     <div class="stock-exchange">
       <select name="stockExchange" [(ngModel)]="stock.exchange">
-        <option value="NYSE">NYSE</option>
-        <option value="NASDAQ">NASDAQ</option>
-        <option value="OTHER">OTHER</option>
+        <option *ngFor="let exc of exchanges" [ngValue]="exc">{{ exc }}</option>
       </select>
     </div>
     <div class="stock-confirm">
