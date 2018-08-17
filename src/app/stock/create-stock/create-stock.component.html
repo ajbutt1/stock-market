@@ -1,7 +1,7 @@
 <h2>Create Stock Form</h2>
 
 <div class="form-group">
-  <form (ngSubmit)="createStock()">
+  <form (ngSubmit)="createStock(stockForm)" #stockForm="ngForm">
     <div>
       The following element changes from green to red when it is invalid
     </div>
