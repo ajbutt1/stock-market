@@ -12,15 +12,11 @@
       <input type="number" placeholder="Stock Price" name="stockPrice" [ngModel]="stock.price" (ngModelChange)="setStockPrice($event)">
     </div>
     <div class="stock-exchange">
-      <div>
-        <input type="radio" name="stockExchange" [(ngModel)]="stock.exchange" value="NYSE">NYSE
-      </div>
-      <div>
-        <input type="radio" name="stockExchange" [(ngModel)]="stock.exchange" value="NASDAQ">NASDAQ
-      </div>
-      <div>
-        <input type="radio" name="stockExchange" [(ngModel)]="stock.exchange" value="OTHER">OTHER
-      </div>
+      <select name="stockExchange" [(ngModel)]="stock.exchange">
+        <option value="NYSE">NYSE</option>
+        <option value="NASDAQ">NASDAQ</option>
+        <option value="OTHER">OTHER</option>
+      </select>
     </div>
     <div class="stock-confirm">
       <input type="checkbox" name="stockConfirm" [(ngModel)]="confirmed">
