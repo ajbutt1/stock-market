@@ -6,7 +6,7 @@ export class Stock {
     public code: string,
     public price: number,
     public previousPrice: number,
-    public exchange: string
+    // public exchange: string
   ) { }
 
   isPositiveChange(): boolean {
