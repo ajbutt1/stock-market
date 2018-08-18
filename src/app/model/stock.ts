@@ -1,15 +1,20 @@
 export class Stock {
   favorite: Boolean = false;
+  notablePeople: Person[];
 
   constructor(
     public name: string,
     public code: string,
     public price: number,
-    public previousPrice: number,
-    // public exchange: string
-  ) { }
+    public previousPrice: number
+  ) { this.notablePeople = []; } // Added as a child of Stock Class
 
   isPositiveChange(): boolean {
     return this.price >= this.previousPrice;
   }
+}
+
+export class Person {
+  name: string;
+  title: string;
 }

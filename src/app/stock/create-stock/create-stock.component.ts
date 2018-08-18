@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Stock } from '../../model/stock';
 
 let counter = 1;
@@ -29,7 +29,7 @@ export class CreateStockComponent {
 
   loadStockFromServer() {
     this.stock = new Stock('Test ' + counter++, 'TST', 20, 10);
-    let stockFormModel = Object.assign({}, this.stock);
+    const stockFormModel = Object.assign({}, this.stock);
     delete stockFormModel.previousPrice;
     delete stockFormModel.favorite;
     this.stockForm.setValue(stockFormModel);
