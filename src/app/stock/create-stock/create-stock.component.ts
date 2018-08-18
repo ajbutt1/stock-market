@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { Stock } from '../../model/stock';
 
 let counter = 1;
@@ -23,21 +23,27 @@ export class CreateStockComponent {
     this.stockForm = this.fb.group({
       name: [null, Validators.required],
       code: [null, [Validators.required, Validators.minLength(2)]],
-      price: [0, [Validators.required, Validators.min(0)]]
+      price: [0, [Validators.required, Validators.min(0)]],
+      notablePeople: this.fb.array([]) // Initialized as FormArray instance
     });
   }
 
-  loadStockFromServer() {
-    this.stock = new Stock('Test ' + counter++, 'TST', 20, 10);
-    const stockFormModel = Object.assign({}, this.stock);
-    delete stockFormModel.previousPrice;
-    delete stockFormModel.favorite;
-    this.stockForm.setValue(stockFormModel);
+  // Getter to make it easier to access the underlying FormArray from Template
+  // This way we avoid typing this.stockForm.get('notablePeople') each time
+  get notablePeople(): FormArray {
+    return this.stockForm.get('notablePeople') as FormArray;
   }
 
-  patchStockForm() {
-    this.stock = new Stock(`Test ${counter++}`, 'TST', 20, 10);
-    this.stockForm.patchValue(this.stock);
+  // We add a new FormGroup instance to the FormArray
+  addNotablePerson() {
+    this.notablePeople.push(this.fb.group({
+      name: ['', Validators.required],
+      title: ['', Validators.required]
+    }));
+  }
+
+  removeNotablePerson(index: number) {
+    this.notablePeople.removeAt(index);
   }
 
   resetForm() {
